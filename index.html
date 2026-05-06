@@ -53,7 +53,7 @@
     /* ── Header ── */
     header {
       position: relative; z-index: 1;
-      text-align: center; margin-bottom: 28px;
+      text-align: center; margin-bottom: 18px;
     }
     .logo {
       font-size: clamp(2.4rem, 6vw, 3.6rem);
@@ -70,13 +70,13 @@
     /* ── Tab switcher ── */
     .tab-bar {
       position: relative; z-index: 1;
-      display: flex; gap: 8px; margin-bottom: 20px;
+      display: flex; gap: 8px; margin-bottom: 14px;
       background: rgba(0,40,40,.7);
       border: 1px solid var(--teal-dark);
       border-radius: 12px; padding: 6px;
       backdrop-filter: blur(10px);
-    }
-    .tab-btn {
+      width: 384px;
+    }    .tab-btn {
       flex: 1; padding: 10px 22px;
       border: none; border-radius: 8px;
       font-family: 'Rajdhani', sans-serif;
@@ -97,32 +97,41 @@
       background: rgba(0,20,20,.82);
       border: 1px solid var(--teal-dark);
       border-radius: 20px;
-      padding: 22px;
+      padding: 12px;
       backdrop-filter: blur(18px);
       box-shadow: 0 8px 48px rgba(0,0,0,.6), inset 0 1px 0 rgba(0,200,200,.12);
-      width: 100%; max-width: 420px;
+      /* 4 inches × 5 inches at 96 dpi */
+      width: 384px;
+      height: 480px;
+      display: flex;
+      flex-direction: column;
     }
-    .calc-card.wide { max-width: 620px; }
+    .calc-card.wide {
+      width: 384px;
+      height: 480px;
+    }
 
     /* ── Display ── */
     .display {
       background: rgba(0,10,10,.9);
       border: 1px solid var(--teal-dark);
-      border-radius: 12px;
-      padding: 14px 16px 10px;
-      margin-bottom: 16px;
-      min-height: 96px;
+      border-radius: 10px;
+      padding: 7px 12px 6px;
+      margin-bottom: 9px;
+      height: 66px;
+      min-height: 66px;
       display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end;
+      flex-shrink: 0;
     }
     .display-expr {
       font-family: 'Share Tech Mono', monospace;
-      font-size: .88rem; color: var(--text-dim);
-      min-height: 20px; word-break: break-all;
+      font-size: .72rem; color: var(--text-dim);
+      min-height: 14px; word-break: break-all;
       text-align: right; letter-spacing: .04em;
     }
     .display-val {
       font-family: 'Share Tech Mono', monospace;
-      font-size: clamp(1.9rem, 6vw, 2.6rem);
+      font-size: 1.75rem;
       color: var(--teal-glow);
       text-shadow: 0 0 12px var(--teal-bright);
       word-break: break-all; text-align: right;
@@ -132,17 +141,18 @@
     /* ── Button grid ── */
     .btn-grid {
       display: grid;
-      gap: 10px;
+      gap: 6px;
+      flex: 1;
     }
-    .standard-grid { grid-template-columns: repeat(4, 1fr); }
-    .sci-grid      { grid-template-columns: repeat(5, 1fr); }
+    .standard-grid { grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(5, 1fr); }
+    .sci-grid      { grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(10, 1fr); }
 
     .btn {
-      padding: 0; height: 62px;
+      padding: 0; height: 100%;
       border: 1px solid rgba(0,120,120,.35);
-      border-radius: 12px;
+      border-radius: 10px;
       font-family: 'Rajdhani', sans-serif;
-      font-size: 1.05rem; font-weight: 600; letter-spacing: .04em;
+      font-size: .92rem; font-weight: 600; letter-spacing: .04em;
       cursor: pointer;
       transition: transform .1s, box-shadow .15s, background .15s;
       position: relative; overflow: hidden;
@@ -199,7 +209,7 @@
     .btn-sci-style {
       background: linear-gradient(145deg, #002a3a, #001a28);
       color: #a0d8ef;
-      font-size: .82rem;
+      font-size: .68rem;
       border-color: rgba(0,100,140,.4);
     }
     .btn-sci-style:hover { background: linear-gradient(145deg, #003a50, #002236); box-shadow: 0 0 12px rgba(0,120,180,.3); }
@@ -207,7 +217,7 @@
     .btn-mem-style {
       background: linear-gradient(145deg, #2a0050, #18002e);
       color: #d0a0ff;
-      font-size: .82rem;
+      font-size: .68rem;
       border-color: rgba(100,0,150,.35);
     }
     .btn-mem-style:hover { box-shadow: 0 0 12px rgba(140,0,200,.3); }
@@ -217,10 +227,10 @@
     /* ── History panel ── */
     .history-wrap {
       position: relative; z-index: 1;
-      width: 100%; max-width: 420px;
-      margin-top: 16px;
+      width: 384px;
+      margin-top: 12px;
     }
-    .history-wrap.wide { max-width: 620px; }
+    .history-wrap.wide { width: 384px; }
     .history-toggle {
       width: 100%; padding: 10px;
       background: rgba(0,30,30,.7);
